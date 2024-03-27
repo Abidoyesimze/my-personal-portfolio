@@ -13,14 +13,27 @@ import React, { useState } from 'react';
    };
  
    return (
-     <Nav>
+     <Nav id='home'>
        <img src={logo} alt="logo" className='logo' height="90px" width="100px" />
        
-       <div className="desktopMenuListItem">
-         <a className={activeItem === 'intro' ? 'active' : ''} onClick={() => handleItemClick('home')}>Home</a>
-         <a className={activeItem === 'skills' ? 'active' : ''} onClick={() => handleItemClick('about')}>About</a>
-         <a className={activeItem === 'works' ? 'active' : ''} onClick={() => handleItemClick('portfolio')}>Portfolio</a>
+       <div className="desktopMenuListItems">
+         {/* <a className={activeItem === 'home' ? 'active' : ''} onClick={() => handleItemClick('intro')}>Home</a>
+         <a className={activeItem === 'about' ? 'active' : ''} onClick={() => handleItemClick('skills')}>About</a>
+         <a className={activeItem === 'portfolio' ? 'active' : ''} onClick={() => handleItemClick('works')}>Portfolio</a>
          <a className={activeItem === 'clients' ? 'active' : ''} onClick={() => handleItemClick('clients')}>Clients</a>
+          */}
+          <a className='desktopMenuListItem' onClick={() =>{
+            document.getElementById('intro').scrollIntoView({behavior: 'smooth'});
+          }}>Home</a>
+          <a className='desktopMenuListItem' onClick={() =>{
+            document.getElementById('skills').scrollIntoView({behavior: 'smooth'});
+          }}>About</a>
+          <a className='desktopMenuListItem' onClick={() =>{
+            document.getElementById('works').scrollIntoView({behavior: 'smooth'});
+          }}>Portfolio</a>
+          <a className='desktopMenuListItem' onClick={() =>{
+            document.getElementById('clients').scrollIntoView({behavior: 'smooth'});
+          }}>Clients</a>
        </div>
  
        <button className='desktopMenuBtn' onClick={() => {
@@ -45,31 +58,34 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 position: sticky;
-margin-right: 50px;
 top:0;
+background-color: rgba(255, 255, 255, 0.4);
 z-index: 3;
 
-logo{
+
+.logo{
    object-fit: cover;
    height: 3rem;
    width: 4rem;
    float: left;
 }
 
-desktopMenuListItem{
-   margin: 10px;
-   cursor: pointer;
+.desktopMenuListItems{
    justify-content: space-between;
-   position: absolute;
+   display: flex;
+   width: 50%;
 }
 
-desktopMenuListItem:hover{
-   color: yellow;
-   padding-bottom: 0.5rem;
-   border-bottom: 1px solid yellow;
+.desktopMenuListItem {
+   padding-bottom: 10px;
+   cursor: pointer;
+}
+.desktopMenuListItem:hover{
+   color: green;
+   border-bottom: 2px solid green;
 }
 
-desktopMenuBtn{
+.desktopMenuBtn{
    background: black;
    color: white;
    border: none;
@@ -80,7 +96,7 @@ desktopMenuBtn{
    border-radius: 2rem;
 }
 
-desktopMenuImg{
+.desktopMenuImg{
    object-fit: cover;
    height: 1rem;
    width: 1rem;
@@ -89,11 +105,11 @@ desktopMenuImg{
 
 }
 
-:active{
-   color: yellow;
-   padding-bottom: 0%.5rem;
-   border-bottom: 3px solid yellow;
-}
+/* :active{
+   color: green;
+   padding-bottom: 0.5rem;
+   border-bottom: 1px solid green;
+} */
 
 .mobMenu{
    display: none;
@@ -101,20 +117,20 @@ desktopMenuImg{
    height: 1.8rem;
 }
 
-navMenu{
+.navMenu{
    position: absolute;
-   top: 4rem;
+   /* top: 4rem; */
    right: 2rem;
    z-index: 2;
    display: flex;
    flex-direction: column;
    padding: 0.5rem;
-   border-radius: 1rem;
+   border-radius: 3rem;
    min-width: 15rem;
    height: fit-content;
 }
 
-listItem{
+.listItem{
    color: white;
    padding: 0%.5rem 3rem;
    margin: 0%.25rem;
@@ -134,7 +150,15 @@ listItem{
 
 `;
 
-const desktopMenuListItem = styled.div``
+const desktopMenuListItem = styled.div`
+   margin: 10px;
+   cursor: pointer;
+   justify-content: space-between;
+   position: absolute;
+   display: flex;
+   width: 50%;
+   float: left;
+`;
 
 
 
